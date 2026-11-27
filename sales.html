@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <title>Sales | Cruz Mobile Hub</title>
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sales.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="app-body sales-body">
+
+  <div id="salesApplication">
+
+    <header class="sales-header">
+      <div class="sales-brand">
+        <img src="images/cruz1.png" alt="Cruz Mobile Hub" class="sales-brand-logo">
+        <div class="sales-brand-copy">
+          <p class="sales-kicker">CRUZ MOBILE HUB</p>
+          <h1>Point of Sale</h1>
+          <p class="sales-subtitle">Classic service. Modern sales management.</p>
+        </div>
+      </div>
+
+      <div class="sales-header-actions">
+        <div class="sales-user-card">
+          <span class="sales-user-label">Signed in as</span>
+          <strong class="sales-user" id="salesUserLabel">Salesperson</strong>
+        </div>
+        <a class="sales-action sales-action-secondary" id="adminAreaBtn" href="admin-dashboard.html" style="display:none">Admin Dashboard</a>
+        <button class="sales-action" id="logoutBtn" type="button">Sign out</button>
+      </div>
+    </header>
+
+    <main class="sales-content">
+      <section class="sales-hero">
+        <div class="sales-hero-copy">
+          <p class="eyebrow">SALES DESK</p>
+          <h2>Every transaction, beautifully handled.</h2>
+          <p>Record new sales with confidence, keep track of today&rsquo;s performance, and review recent receipts in one refined workspace.</p>
+        </div>
+        <div class="sales-hero-mark" aria-hidden="true">
+          <img src="images/cruz1.png" alt="" class="sales-hero-logo">
+        </div>
+      </section>
+
+      <section class="sales-stats" aria-label="Sales summary">
+        <article class="sales-stat-card">
+          <div class="sales-stat-top">
+            <span class="sales-stat-icon">UGX</span>
+            <p>Today's sales</p>
+          </div>
+          <strong id="todaySales">UGX 0</strong>
+          <small>Revenue recorded today</small>
+        </article>
+
+        <article class="sales-stat-card">
+          <div class="sales-stat-top">
+            <span class="sales-stat-icon">#</span>
+            <p>Transactions today</p>
+          </div>
+          <strong id="todayTransactions">0</strong>
+          <small>Completed sales today</small>
+        </article>
+
+        <article class="sales-stat-card">
+          <div class="sales-stat-top">
+            <span class="sales-stat-icon">&#8734;</span>
+            <p>All-time transactions</p>
+          </div>
+          <strong id="allTransactions">0</strong>
+          <small>Total recorded receipts</small>
+        </article>
+      </section>
+
+      <div class="sales-workspace">
+        <section class="sales-panel sales-form-panel">
+          <div class="sales-panel-head">
+            <div>
+              <p class="sales-panel-kicker">NEW TRANSACTION</p>
+              <h3>Record a sale</h3>
+              <p>Select the product, confirm the price, and complete the receipt.</p>
+            </div>
+          </div>
+
+          <form id="saleForm" class="sales-form">
+            <div class="sales-field">
+              <label for="saleProduct">Product</label>
+              <select id="saleProduct" required>
+                <option value="">Loading products...</option>
+              </select>
+            </div>
+
+            <div class="sales-form-grid">
+              <div class="sales-field">
+                <label for="saleQuantity">Quantity</label>
+                <input id="saleQuantity" type="number" min="1" step="1" placeholder="0" required>
+              </div>
+
+              <div class="sales-field">
+                <label for="salePrice">Unit selling price</label>
+                <input id="salePrice" type="number" min="0" step="0.01" placeholder="0.00" required>
+              </div>
+            </div>
+
+            <div class="sales-form-grid">
+              <div class="sales-field">
+                <label for="salePayment">Payment method</label>
+                <select id="salePayment" required>
+                  <option value="Cash">Cash</option>
+                  <option value="Mobile Money">Mobile Money</option>
+                  <option value="Bank">Bank</option>
+                  <option value="Credit">Credit</option>
+                </select>
+              </div>
+
+              <div class="sales-field">
+                <label for="saleCustomer">Customer name <span>(optional)</span></label>
+                <input id="saleCustomer" type="text" placeholder="Walk-in customer">
+              </div>
+            </div>
+
+            <div class="sales-field">
+              <label for="saleNotes">Notes <span>(optional)</span></label>
+              <textarea id="saleNotes" rows="3" placeholder="Add a short note for this transaction"></textarea>
+            </div>
+
+            <div class="sales-total-card">
+              <div>
+                <span class="sales-total-label">Sale total</span>
+                <small>Calculated automatically</small>
+              </div>
+              <strong id="saleTotal">UGX 0</strong>
+            </div>
+
+            <p id="saleMessage" class="cmh-message" aria-live="polite"></p>
+
+            <button id="saveSaleBtn" class="sales-submit" type="submit">
+              Record Sale
+            </button>
+          </form>
+        </section>
+
+        <section class="sales-panel sales-history-panel">
+          <div class="sales-panel-head sales-panel-head-row">
+            <div>
+              <p class="sales-panel-kicker">RECENT ACTIVITY</p>
+              <h3>Sales history</h3>
+              <p>Search receipts and review transactions by period.</p>
+            </div>
+            <div class="sales-history-controls">
+              <div class="sales-search-wrap">
+                <label class="sales-search-label" for="salesPeriodFilter">Period</label>
+                <select id="salesPeriodFilter" class="sales-search">
+                  <option value="daily">Today</option>
+                  <option value="weekly">This week</option>
+                  <option value="monthly">This month</option>
+                  <option value="all">All time</option>
+                </select>
+              </div>
+              <div class="sales-search-wrap">
+                <label class="sales-search-label" for="salesSearch">Search</label>
+                <input id="salesSearch" class="sales-search" type="search" placeholder="Receipt, product, customer...">
+              </div>
+            </div>
+          </div>
+
+          <div class="sales-table-wrap">
+            <table class="sales-table">
+              <thead>
+                <tr>
+                  <th>Receipt</th>
+                  <th>Date</th>
+                  <th>Product</th>
+                  <th>Qty</th>
+                  <th>Total</th>
+                  <th>Payment</th>
+                  <th>Customer</th>
+                </tr>
+              </thead>
+              <tbody id="salesTable">
+                <tr><td colspan="7" class="sales-table-empty">Loading sales...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="sales-footer">
+      <span>CRUZ MOBILE HUB</span>
+      <span class="sales-footer-dot"></span>
+      <span>Sales Management</span>
+    </footer>
+
+  </div>
+
+  <script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/sales.js"></script>
+
+</body>
+</html>
+

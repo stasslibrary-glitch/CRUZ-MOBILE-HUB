@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <title>Admin Dashboard | Cruz Mobile Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="app-body">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="images/cruz1.png" alt="Cruz Mobile Hub" class="small-brand-icon">
+      <div>
+        <strong>CRUZ MOBILE</strong>
+        <span>HUB MANAGEMENT</span>
+      </div>
+    </div>
+
+    <div class="sidebar-label">MAIN MENU</div>
+
+    <nav class="side-nav">
+      <a class="side-link active" href="admin-dashboard.html">Dashboard</a>
+      <a class="side-link" href="products.html">Products</a>
+      <a class="side-link" href="sales.html">Sales & POS</a>
+      <a class="side-link" href="purchases.html">Purchases</a>
+      <a class="side-link" href="staff.html">Salespeople</a>
+
+      <div class="sidebar-label">BUSINESS MANAGEMENT</div>
+
+      <a class="side-link" href="sales-history.html">Sales History</a>
+      <a class="side-link" href="suppliers.html">Suppliers</a>
+      <a class="side-link" href="expenses.html">Expenses</a>
+      <a class="side-link" href="reports.html">Reports & Analysis</a>
+      <a class="side-link" href="notifications.html">Notifications</a>
+      <a class="side-link" href="settings.html">Settings</a>
+    </nav>
+
+    <button class="logout-button" id="logoutBtn">Sign out</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+      <div>
+        <p class="eyebrow">CRUZ MOBILE HUB</p>
+        <h1>Dashboard</h1>
+      </div>
+      <div class="admin-profile">
+        <div class="profile-avatar">A</div>
+        <div>
+          <strong id="adminName">Administrator</strong>
+          <span>Admin account</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="welcome-panel">
+      <div>
+        <p class="eyebrow">BUSINESS OVERVIEW</p>
+        <h2>Welcome back, <span id="welcomeName">Administrator</span>.</h2>
+        <p>Here is what's happening in your business today.</p>
+      </div>
+      <div class="welcome-date" id="todayDate">Loading date...</div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <p class="eyebrow">LIVE BUSINESS SUMMARY</p>
+        <h2>Performance overview</h2>
+      </div>
+      <button class="outline-button" id="refreshBtn">Refresh</button>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <span class="stat-icon"></span>
+        <p>Total products</p>
+        <h3 id="totalProducts"></h3>
+        <span class="stat-note">Active products</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon"></span>
+        <p>Stock units</p>
+        <h3 id="stockUnits"></h3>
+        <span class="stat-note">Available inventory</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon"></span>
+        <p>Low stock items</p>
+        <h3 id="lowStock"></h3>
+        <span class="stat-note">At or below minimum</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon"></span>
+        <p>Today's sales</p>
+        <h3 id="todaySalesUGX">UGX 0</h3>
+        <span class="stat-note" id="todaySalesUSD">USD 0</span>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="content-card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">INVENTORY</p>
+            <h3>Stock alerts</h3>
+          </div>
+          <a href="products.html">Manage products </a>
+        </div>
+        <div id="stockAlerts" class="empty-state">
+          Loading inventory...
+        </div>
+      </article>
+
+      <article class="content-card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">QUICK ACCESS</p>
+            <h3>Business operations</h3>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <a href="products.html"><span>ï¼‹</span><div><strong>Add product</strong><small>Register a new product</small></div></a>
+          <a href="sales.html"><span></span><div><strong>Record a sale</strong><small>Open point of sale</small></div></a>
+          <a href="purchases.html"><span></span><div><strong>Add stock</strong><small>Record a purchase</small></div></a>
+          <a href="reports.html"><span></span><div><strong>View reports</strong><small>Analyse business performance</small></div></a>
+        </div>
+      </article>
+    </section>
+
+    <footer class="app-footer">
+      CRUZ MOBILE HUB <span></span> BUSINESS MANAGEMENT SYSTEM
+    </footer>
+  </main>
+<script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,175 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userExists(uid) {
+      return exists(/databases/$(database)/documents/users/$(uid));
+    }
+
+    function userData(uid) {
+      return get(/databases/$(database)/documents/users/$(uid)).data;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && userExists(request.auth.uid)
+        && userData(request.auth.uid).role == "admin"
+        && userData(request.auth.uid).active == true
+        && userData(request.auth.uid).businessId == "cruz-mobile-hub";
+    }
+
+    function isSalesperson() {
+      return signedIn()
+        && userExists(request.auth.uid)
+        && userData(request.auth.uid).role == "salesperson"
+        && userData(request.auth.uid).active == true
+        && userData(request.auth.uid).businessId == "cruz-mobile-hub";
+    }
+
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow create: if isAdmin()
+        || (signedIn()
+          && request.auth.uid == uid
+          && request.resource.data.role == "salesperson"
+          && request.resource.data.active == true
+          && request.resource.data.businessId == "cruz-mobile-hub"
+          && request.resource.data.email == request.auth.token.email
+          && request.resource.data.keys().hasOnly(["name", "email", "role", "active", "businessId", "createdAt"]));
+      allow update, delete: if isAdmin();
+    }
+
+    match /businesses/{id} {
+      allow read, write: if isAdmin() && id == "cruz-mobile-hub";
+    }
+
+    match /products/{id} {
+      allow read: if isAdmin()
+        || (isSalesperson()
+          && resource.data.businessId == "cruz-mobile-hub"
+          && resource.data.active == true);
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin()
+        || (isSalesperson()
+          && resource.data.businessId == "cruz-mobile-hub"
+          && request.resource.data.businessId == "cruz-mobile-hub"
+          && request.resource.data.diff(resource.data).changedKeys().hasOnly(["stockQty", "updatedAt"]));
+    }
+
+    match /productPricing/{id} {
+      allow read: if isAdmin()
+        || (isSalesperson() && resource.data.businessId == "cruz-mobile-hub");
+      allow write: if isAdmin();
+    }
+
+        match /sales/{id} {
+      allow read: if isAdmin()
+        || (isSalesperson()
+          && resource.data.businessId == "cruz-mobile-hub"
+          && resource.data.cashierUid == request.auth.uid);
+      allow create: if isAdmin()
+        || (isSalesperson()
+          && request.resource.data.businessId == "cruz-mobile-hub"
+          && request.resource.data.cashierUid == request.auth.uid
+          && request.resource.data.keys().hasOnly(["businessId","receiptNo","productId","productName","quantity","unitPrice","total","currency","paymentMethod","customerName","notes","dateKey","cashierName","cashierUid","cashierRole","createdAt"])
+          && request.resource.data.productName is string
+          && request.resource.data.quantity is int
+          && request.resource.data.quantity > 0
+          && request.resource.data.unitPrice is number
+          && request.resource.data.unitPrice > 0
+          && request.resource.data.total is number
+          && request.resource.data.total == request.resource.data.quantity * request.resource.data.unitPrice
+          && request.resource.data.currency in ["UGX","USD"]
+          && request.resource.data.paymentMethod in ["Cash","Mobile Money","Bank","Credit"]
+          && request.resource.data.dateKey is string);
+      allow update, delete: if isAdmin();
+    }
+
+    match /purchases/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /stockMovements/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /suppliers/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /customers/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /debts/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /debtPayments/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /expenses/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /staff/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /staffDailyTotals/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /notifications/{id} {
+      allow read, update, delete: if isAdmin();
+      allow create: if isAdmin()
+        || (isSalesperson()
+          && request.resource.data.businessId == "cruz-mobile-hub"
+          && request.resource.data.keys().hasOnly(["businessId", "type", "productId", "productName", "remainingStock", "message", "read", "createdAt", "saleId", "cashierUid", "cashierName"])
+          && request.resource.data.type in ["low_stock", "out_of_stock", "sale"]
+          && request.resource.data.read == false
+          && request.resource.data.message is string
+          && request.resource.data.message.size() <= 300);
+    }
+
+    match /settings/{id} {
+      allow read: if isAdmin() || isSalesperson();
+      allow write: if isAdmin();
+    }
+
+    match /financialRecords/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /cashReconciliations/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /returns/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /reports/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /auditLogs/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /categories/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

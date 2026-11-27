@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <title>Settings | Cruz Mobile Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="app-body">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><img src="images/cruz1.png" alt="Cruz Mobile Hub" class="small-brand-icon"><div><strong>CRUZ MOBILE</strong><span>HUB MANAGEMENT</span></div></div>
+    <div class="sidebar-label">MAIN MENU</div>
+    <nav class="side-nav">
+      <a class="side-link" href="admin-dashboard.html">Dashboard</a>
+      <a class="side-link" href="products.html">Products</a>
+      <a class="side-link" href="sales.html">Sales & POS</a>
+      <a class="side-link" href="purchases.html">Purchases</a>
+      <a class="side-link" href="staff.html">Salespeople</a>
+      <div class="sidebar-label">BUSINESS MANAGEMENT</div>
+      <a class="side-link" href="sales-history.html">Sales History</a>
+      <a class="side-link" href="suppliers.html">Suppliers</a>
+      <a class="side-link" href="expenses.html">Expenses</a>
+      <a class="side-link" href="reports.html">Reports & Analysis</a>
+      <a class="side-link" href="notifications.html">Notifications</a>
+      <a class="side-link active" href="settings.html">Settings</a>
+    </nav>
+    <button class="logout-button" id="logoutBtn">Sign out</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+      <div><p class="eyebrow">SYSTEM CONFIGURATION</p><h1>Settings</h1></div>
+      <div class="admin-profile"><div class="profile-avatar">A</div><div><strong id="adminName">Administrator</strong><span>Admin account</span></div></div>
+    </header>
+
+    <section class="welcome-panel compact-welcome">
+      <div><p class="eyebrow">CRUZ MOBILE HUB</p><h2>Business settings.</h2><p>Manage your business information, currency display, stock alerts and appearance.</p></div>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading"><div><p class="eyebrow">BUSINESS PROFILE</p><h3>Business information</h3></div></div>
+      <form id="settingsForm">
+        <div class="form-grid">
+          <div class="form-field"><label for="businessName">Business name</label><input id="businessName" maxlength="100" required></div>
+          <div class="form-field"><label for="businessPhone">Business phone</label><input id="businessPhone" maxlength="30" placeholder="+256..."></div>
+          <div class="form-field"><label for="businessEmail">Business email</label><input id="businessEmail" type="email" maxlength="100"></div>
+          <div class="form-field"><label for="businessLocation">Business location</label><input id="businessLocation" maxlength="150" placeholder="Town / area"></div>
+        </div>
+
+        <div class="card-heading" style="margin-top:28px"><div><p class="eyebrow">FINANCIAL PREFERENCES</p><h3>Currency settings</h3></div></div>
+        <div class="form-grid">
+          <div class="form-field"><label for="defaultCurrency">Currency preference</label>
+            <select id="defaultCurrency">
+              <option value="Both">Both UGX and USD</option>
+              <option value="UGX">UGX only</option>
+              <option value="USD">USD only</option>
+            </select>
+          </div>
+          <div class="form-field"><label for="lowStockDefault">Default low-stock threshold</label><input id="lowStockDefault" type="number" min="0" step="1" required></div>
+        </div>
+
+        <div class="card-heading" style="margin-top:28px"><div><p class="eyebrow">APPEARANCE</p><h3>Theme</h3></div></div>
+        <div class="form-grid">
+         <div class="form-field">
+  <label for="appTheme">Choose application theme</label>
+  <select id="appTheme">
+            <optgroup label="Dark Themes">
+              <option value="black-gold">Black & Gold</option>
+              <option value="royal-purple">Royal Purple</option>
+              <option value="midnight-blue">Midnight Blue</option>
+              <option value="emerald-forest">Emerald Forest</option>
+              <option value="crimson-obsidian">Crimson Obsidian</option>
+              <option value="cyber-neon">Cyber Neon</option>
+              <option value="sunset-copper">Sunset Copper</option>
+              <option value="slate-graphite">Slate Graphite</option>
+              <option value="aurora-dream">Aurora Dream</option>
+            </optgroup>
+            <optgroup label="Light Themes">
+              <option value="arctic-light">Arctic Light</option>
+              <option value="ivory-gold-light">Ivory Gold</option>
+              <option value="rose-quartz">Rose Quartz</option>
+              <option value="lavender-mist">Lavender Mist</option>
+              <option value="mint-cream">Mint Cream</option>
+              <option value="peach-sorbet">Peach Sorbet</option>
+              <option value="cotton-candy">Cotton Candy</option>
+            </optgroup>
+  </select>
+</div>
+
+
+        <div class="form-actions">
+          <button type="submit" class="gold-button" id="saveSettingsBtn">Save settings</button>
+        </div>
+        <p id="settingsMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading"><div><p class="eyebrow">SYSTEM INFORMATION</p><h3>Application details</h3></div></div>
+      <div class="form-grid">
+        <div class="stat-card"><p>Business ID</p><h3 style="font-size:16px">cruz-mobile-hub</h3></div>
+        <div class="stat-card"><p>Database</p><h3 style="font-size:16px">Firebase Firestore</h3></div>
+        <div class="stat-card"><p>Access level</p><h3 style="font-size:16px">Administrator</h3></div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/settings.js"></script>
+</body>
+</html>
+
+

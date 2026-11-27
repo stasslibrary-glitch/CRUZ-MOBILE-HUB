@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <title>Suppliers | Cruz Mobile Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="app-body">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="images/cruz1.png" alt="Cruz Mobile Hub" class="small-brand-icon">
+      <div><strong>CRUZ MOBILE</strong><span>HUB MANAGEMENT</span></div>
+    </div>
+    <div class="sidebar-label">MAIN MENU</div>
+    <nav class="side-nav">
+      <a class="side-link" href="admin-dashboard.html">Dashboard</a>
+      <a class="side-link" href="products.html">Products</a>
+      <a class="side-link" href="sales.html">Sales & POS</a>
+      <a class="side-link" href="purchases.html">Purchases</a>
+      <a class="side-link" href="staff.html">Salespeople</a>
+      <div class="sidebar-label">BUSINESS MANAGEMENT</div>
+      <a class="side-link" href="sales-history.html">Sales History</a>
+      <a class="side-link active" href="suppliers.html">Suppliers</a>
+      <a class="side-link" href="expenses.html">Expenses</a>
+      <a class="side-link" href="reports.html">Reports & Analysis</a>
+      <a class="side-link" href="notifications.html">Notifications</a>
+      <a class="side-link" href="settings.html">Settings</a>
+    </nav>
+    <button class="logout-button" id="logoutBtn">Sign out</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+      <div>
+        <p class="eyebrow">BUSINESS MANAGEMENT</p>
+        <h1>Suppliers</h1>
+      </div>
+      <div class="admin-profile">
+        <div class="profile-avatar">A</div>
+        <div><strong id="adminName">Administrator</strong><span>Admin account</span></div>
+      </div>
+    </header>
+
+    <section class="welcome-panel compact-welcome">
+      <div>
+        <p class="eyebrow">SUPPLIER DIRECTORY</p>
+        <h2>Manage your suppliers.</h2>
+        <p>Keep supplier contacts and purchasing relationships in one place.</p>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><p>Total suppliers</p><h3 id="supplierCount">0</h3></article>
+      <article class="stat-card"><p>Active suppliers</p><h3 id="activeSupplierCount">0</h3></article>
+      <article class="stat-card"><p>Inactive suppliers</p><h3 id="inactiveSupplierCount">0</h3></article>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading">
+        <div><p class="eyebrow">SUPPLIER DETAILS</p><h3>Add a supplier</h3></div>
+        <span class="admin-only-label">ADMIN ONLY</span>
+      </div>
+
+      <form id="supplierForm">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="supplierName">Supplier / company name *</label>
+            <input id="supplierName" required maxlength="100" placeholder="Supplier name">
+          </div>
+          <div class="form-field">
+            <label for="supplierPhone">Phone number *</label>
+            <input id="supplierPhone" required maxlength="30" placeholder="+256...">
+          </div>
+          <div class="form-field">
+            <label for="supplierEmail">Email address</label>
+            <input id="supplierEmail" type="email" maxlength="100" placeholder="supplier@example.com">
+          </div>
+          <div class="form-field">
+            <label for="supplierLocation">Location</label>
+            <input id="supplierLocation" maxlength="120" placeholder="Town / area">
+          </div>
+        </div>
+
+        <div class="form-field" style="margin-top:16px">
+          <label for="supplierNotes">Notes</label>
+          <textarea id="supplierNotes" rows="3" placeholder="Products supplied, payment terms or other notes"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="reset" class="outline-button">Clear form</button>
+          <button type="submit" class="gold-button" id="saveSupplierBtn">Save supplier</button>
+        </div>
+        <p id="supplierMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading">
+        <div><p class="eyebrow">YOUR CONTACTS</p><h3>Supplier list</h3></div>
+        <input id="supplierSearch" class="search-input" type="search" placeholder="Search suppliers...">
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Supplier</th><th>Phone</th><th>Email</th>
+              <th>Location</th><th>Status</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="suppliersTable">
+            <tr><td colspan="6" class="table-empty">Loading suppliers...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+<script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/suppliers.js"></script>
+</body>
+</html>
+ 
+

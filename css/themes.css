@@ -1,0 +1,868 @@
+/* =========================================
+   1. THEME DEFINITIONS
+   ========================================= */
+:root,
+[data-theme="black-gold"] {
+  --accent: #d6ad55;
+  --accent-rgb: 214, 173, 85;
+  --accent-text: #17120a;
+  --sidebar: #101010;
+  --page: #111111;
+  --card: #1b1b1b;
+  --input-bg: #141414;
+  --border: #2c2c2c;
+  --text: #f4f0e6;
+  --muted: #aaa39a;
+  --bg: var(--page);
+  --surface: var(--card);
+  --surface-light: color-mix(in srgb, var(--card) 86%, var(--text));
+  --gold: var(--accent);
+  --gold-light: color-mix(in srgb, var(--accent) 72%, white);
+  --glow: rgba(214, 173, 85, 0.18);
+  --gradient-a: rgba(214, 173, 85, 0.14);
+  --gradient-b: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="royal-purple"] {
+  --bg: #120d1f;
+  --surface: #1d1633;
+  --surface-light: #271d42;
+  --gold: #c084fc;
+  --gold-light: #d8b4fe;
+
+  --accent: #c084fc;
+  --accent-rgb: 192, 132, 252;
+  --accent-text: #1a082d;
+  --sidebar: #20113a;
+  --page: #150a24;
+  --card: #25143f;
+  --input-bg: #1b0f2f;
+  --border: #4a2d73;
+  --text: #faf5ff;
+  --muted: #ccb7e6;
+  --glow: rgba(192, 132, 252, 0.22);
+  --gradient-a: rgba(192, 132, 252, 0.2);
+  --gradient-b: rgba(236, 72, 153, 0.08);
+}
+
+[data-theme="midnight-blue"] {
+  --bg: #071222;
+  --surface: #11243f;
+  --surface-light: #183153;
+  --gold: #7dd3fc;
+  --gold-light: #bae6fd;
+  --accent: #7dd3fc;
+  --accent-rgb: 125, 211, 252;
+  --accent-text: #051a2c;
+  --sidebar: #0b1b30;
+  --page: #071222;
+  --card: #11243f;
+  --input-bg: #0c1c32;
+  --border: #27476f;
+  --text: #eff8ff;
+  --muted: #a8bfd8;
+  --glow: rgba(125, 211, 252, 0.2);
+  --gradient-a: rgba(125, 211, 252, 0.16);
+  --gradient-b: rgba(99, 102, 241, 0.1);
+}
+
+[data-theme="emerald-forest"] {
+  --bg: #0b1711;
+  --surface: #15271d;
+  --surface-light: #1c3327;
+  --gold: #79e2a0;
+  --gold-light: #b7f0cc;
+  --accent: #34d399;
+  --accent-rgb: 52, 211, 153;
+  --accent-text: #05261b;
+  --sidebar: #0a211a;
+  --page: #071713;
+  --card: #102b22;
+  --input-bg: #0b211a;
+  --border: #235847;
+  --text: #ecfdf5;
+  --muted: #98c9b5;
+  --glow: rgba(52, 211, 153, 0.2);
+  --gradient-a: rgba(52, 211, 153, 0.16);
+  --gradient-b: rgba(163, 230, 53, 0.07);
+}
+
+[data-theme="crimson-obsidian"] {
+  --bg: #14090d;
+  --surface: #241117;
+  --surface-light: #301720;
+  --gold: #ff7a7a;
+  --gold-light: #ffb3b3;
+  --accent: #fb7185;
+  --accent-rgb: 251, 113, 133;
+  --accent-text: #2b0810;
+  --sidebar: #1d0b11;
+  --page: #14070b;
+  --card: #261017;
+  --input-bg: #1d0c12;
+  --border: #5a2433;
+  --text: #fff1f2;
+  --muted: #d3a7b0;
+  --glow: rgba(251, 113, 133, 0.2);
+  --gradient-a: rgba(251, 113, 133, 0.16);
+  --gradient-b: rgba(251, 146, 60, 0.08);
+}
+
+[data-theme="cyber-neon"] {
+  --bg: #080816;
+  --surface: #12122a;
+  --surface-light: #1a1a38;
+  --gold: #00f5d4;
+  --gold-light: #7cfbea;
+  --accent: #22d3ee;
+  --accent-rgb: 34, 211, 238;
+  --accent-text: #041f24;
+  --sidebar: #0d1022;
+  --page: #080916;
+  --card: #141736;
+  --input-bg: #0f1229;
+  --border: #30386b;
+  --text: #f0f9ff;
+  --muted: #9da8d8;
+  --glow: rgba(34, 211, 238, 0.24);
+  --gradient-a: rgba(34, 211, 238, 0.18);
+  --gradient-b: rgba(217, 70, 239, 0.12);
+}
+
+[data-theme="sunset-copper"] {
+  --bg: #17100b;
+  --surface: #271b13;
+  --surface-light: #332419;
+  --gold: #ffb067;
+  --gold-light: #ffd0a1;
+  --accent: #fb923c;
+  --accent-rgb: 251, 146, 60;
+  --accent-text: #2a1203;
+  --sidebar: #22130d;
+  --page: #170d09;
+  --card: #2b1912;
+  --input-bg: #21120d;
+  --border: #5a3523;
+  --text: #fff7ed;
+  --muted: #d2b1a0;
+  --glow: rgba(251, 146, 60, 0.2);
+  --gradient-a: rgba(251, 146, 60, 0.18);
+  --gradient-b: rgba(244, 114, 182, 0.08);
+}
+
+[data-theme="slate-graphite"] {
+  --bg: #121417;
+  --surface: #1d2127;
+  --surface-light: #272c34;
+  --gold: #b8c5d6;
+  --gold-light: #d9e2ec;
+  --accent: #60a5fa;
+  --accent-rgb: 96, 165, 250;
+  --accent-text: #08182d;
+  --sidebar: #181b21;
+  --page: #111418;
+  --card: #1d222b;
+  --input-bg: #171b23;
+  --border: #394253;
+  --text: #f8fafc;
+  --muted: #a8b3c4;
+  --glow: rgba(96, 165, 250, 0.18);
+  --gradient-a: rgba(96, 165, 250, 0.14);
+  --gradient-b: rgba(148, 163, 184, 0.08);
+}
+
+[data-theme="arctic-light"] {
+  --bg: #f3f8fc;
+  --surface: #ffffff;
+  --surface-light: #eaf2f9;
+  --gold: #2f80ed;
+  --gold-light: #5da9ff;
+  --accent: #3b82f6;
+  --accent-rgb: 59, 130, 246;
+  --accent-text: #ffffff;
+  --sidebar: #ffffff;
+  --page: #eef5ff;
+  --card: #ffffff;
+  --input-bg: #f8fbff;
+  --border: #d6e3f5;
+  --text: #10203a;
+  --muted: #64748b;
+  --glow: rgba(59, 130, 246, 0.14);
+  --gradient-a: rgba(59, 130, 246, 0.12);
+  --gradient-b: rgba(14, 165, 233, 0.08);
+}
+
+[data-theme="ivory-gold-light"] {
+  --bg: #fbf7ef;
+  --surface: #fffdf8;
+  --surface-light: #f3ead7;
+  --gold: #b8860b;
+  --gold-light: #d4a017;
+  --accent: #c08a2b;
+  --accent-rgb: 192, 138, 43;
+  --accent-text: #ffffff;
+  --sidebar: #fffaf2;
+  --page: #f7f1e6;
+  --card: #fffdf9;
+  --input-bg: #fffaf2;
+  --border: #eadfcb;
+  --text: #2a2118;
+  --muted: #7a6a57;
+  --glow: rgba(192, 138, 43, 0.14);
+  --gradient-a: rgba(192, 138, 43, 0.12);
+  --gradient-b: rgba(251, 191, 36, 0.08);
+}
+
+[data-theme="rose-quartz"] {
+  --bg: #fff5f8;
+  --surface: #ffffff;
+  --surface-light: #fde7ee;
+  --gold: #e76f9a;
+  --gold-light: #f3a7c0;
+  --accent: #f472b6;
+  --accent-rgb: 244, 114, 182;
+  --accent-text: #3d0a23;
+  --sidebar: #fff7fb;
+  --page: #fff1f7;
+  --card: #fff9fc;
+  --input-bg: #fff4fa;
+  --border: #f3cde0;
+  --text: #4a2237;
+  --muted: #94677d;
+  --glow: rgba(244, 114, 182, 0.16);
+  --gradient-a: rgba(244, 114, 182, 0.14);
+  --gradient-b: rgba(196, 181, 253, 0.12);
+}
+
+[data-theme="lavender-mist"] {
+  --bg: #f7f4ff;
+  --surface: #ffffff;
+  --surface-light: #ece6ff;
+  --gold: #8b7cf6;
+  --gold-light: #b8aeff;
+  --accent: #a78bfa;
+  --accent-rgb: 167, 139, 250;
+  --accent-text: #241047;
+  --sidebar: #f8f6ff;
+  --page: #f3f0ff;
+  --card: #fcfbff;
+  --input-bg: #f7f4ff;
+  --border: #ddd4f5;
+  --text: #2f2550;
+  --muted: #746a95;
+  --glow: rgba(167, 139, 250, 0.16);
+  --gradient-a: rgba(167, 139, 250, 0.14);
+  --gradient-b: rgba(96, 165, 250, 0.1);
+}
+
+[data-theme="mint-cream"] {
+  --bg: #f2fbf7;
+  --surface: #ffffff;
+  --surface-light: #e1f5ea;
+  --gold: #2fb37c;
+  --gold-light: #74d7aa;
+  --accent: #2dd4bf;
+  --accent-rgb: 45, 212, 191;
+  --accent-text: #062925;
+  --sidebar: #f5fffd;
+  --page: #edfaf7;
+  --card: #fbfffe;
+  --input-bg: #f3fcfa;
+  --border: #cfece5;
+  --text: #183833;
+  --muted: #5f837c;
+  --glow: rgba(45, 212, 191, 0.15);
+  --gradient-a: rgba(45, 212, 191, 0.14);
+  --gradient-b: rgba(52, 211, 153, 0.08);
+}
+
+[data-theme="peach-sorbet"] {
+  --bg: #fff7f2;
+  --surface: #ffffff;
+  --surface-light: #ffeade;
+  --gold: #ff8f66;
+  --gold-light: #ffbea6;
+  --accent: #fb7185;
+  --accent-rgb: 251, 113, 133;
+  --accent-text: #ffffff;
+  --sidebar: #fff8f5;
+  --page: #fff1ec;
+  --card: #fffaf8;
+  --input-bg: #fff5f1;
+  --border: #f2d5ca;
+  --text: #412723;
+  --muted: #8b6861;
+  --glow: rgba(251, 113, 133, 0.14);
+  --gradient-a: rgba(251, 146, 60, 0.14);
+  --gradient-b: rgba(251, 113, 133, 0.1);
+}
+
+[data-theme="cotton-candy"] {
+  --bg: #fff5fb;
+  --surface: #ffffff;
+  --surface-light: #ffe6f4;
+  --gold: #ff6ec7;
+  --gold-light: #ff9fdc;
+  --accent: #8b5cf6;
+  --accent-rgb: 139, 92, 246;
+  --accent-text: #ffffff;
+  --sidebar: #fbfaff;
+  --page: #f5f3ff;
+  --card: #ffffff;
+  --input-bg: #f8f6ff;
+  --border: #ddd7fe;
+  --text: #31265a;
+  --muted: #7469a1;
+  --glow: rgba(139, 92, 246, 0.14);
+  --gradient-a: rgba(244, 114, 182, 0.12);
+  --gradient-b: rgba(96, 165, 250, 0.12);
+}
+
+[data-theme="aurora-dream"] {
+  --bg: #0b1020;
+  --surface: #151d35;
+  --surface-light: #1d2847;
+  --gold: #7c8cff;
+  --gold-light: #aeb8ff;
+  --accent: #a855f7;
+  --accent-rgb: 168, 85, 247;
+  --accent-text: #ffffff;
+  --sidebar: #15122a;
+  --page: #100d21;
+  --card: #1b1733;
+  --input-bg: #15122a;
+  --border: #3b3463;
+  --text: #f5f3ff;
+  --muted: #b8addd;
+  --glow: rgba(168, 85, 247, 0.22);
+  --gradient-a: rgba(168, 85, 247, 0.18);
+  --gradient-b: rgba(34, 211, 238, 0.1);
+}
+
+[data-theme] {
+  --bg: var(--page);
+  --surface: var(--card);
+  --surface-light: color-mix(in srgb, var(--card) 84%, var(--text));
+  --gold: var(--accent);
+  --gold-light: color-mix(in srgb, var(--accent) 72%, white);
+  --sales-bg: var(--page);
+  --sales-panel: var(--card);
+  --sales-panel-light: color-mix(in srgb, var(--card) 88%, var(--text));
+  --sales-gold: var(--accent);
+  --sales-gold-light: color-mix(in srgb, var(--accent) 72%, white);
+  --sales-gold-dark: color-mix(in srgb, var(--accent) 65%, black);
+  --sales-text: var(--text);
+  --sales-muted: var(--muted);
+  --sales-border: var(--border);
+}
+
+/* =========================================
+   3. PER-THEME EFFECTS (UNIQUE)
+   ========================================= */
+@keyframes cmh-sheen {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes cmh-float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes cmh-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.0), 0 10px 24px rgba(var(--accent-rgb), 0.18); }
+  50% { box-shadow: 0 0 0 8px rgba(var(--accent-rgb), 0.08), 0 14px 30px rgba(var(--accent-rgb), 0.26); }
+}
+@keyframes cmh-slide {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes cmh-aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shared logo visibility */
+.brand-icon,
+.small-brand-icon,
+.lock-icon {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.22)) drop-shadow(0 0 14px rgba(var(--accent-rgb), .2)) !important;
+}
+
+/* 1. Black & Gold: Metallic Sheen + Gradient Accent Text */
+[data-theme="black-gold"] .stat-card h3,
+[data-theme="black-gold"] .welcome-panel h2,
+[data-theme="black-gold"] .topbar h1 {
+  background: linear-gradient(120deg, var(--text), var(--accent), var(--text));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+[data-theme="black-gold"] .gold-button,
+[data-theme="black-gold"] .cmh-button {
+  background: linear-gradient(110deg, color-mix(in srgb,var(--accent) 80%,#fff), var(--accent), color-mix(in srgb,var(--accent) 75%,#000)) !important;
+  background-size: 200% 100% !important;
+  animation: cmh-sheen 5s linear infinite;
+}
+
+/* 2. Royal Purple: Glassmorphism + Spotlight Hover */
+[data-theme="royal-purple"] .content-card,
+[data-theme="royal-purple"] .stat-card,
+[data-theme="royal-purple"] .cmh-panel,
+[data-theme="royal-purple"] .sidebar,
+[data-theme="royal-purple"] .topbar {
+  backdrop-filter: blur(14px) saturate(125%);
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)), color-mix(in srgb, var(--card) 72%, transparent) !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+[data-theme="royal-purple"] .content-card,
+[data-theme="royal-purple"] .stat-card,
+[data-theme="royal-purple"] .cmh-panel {
+  position: relative;
+  overflow: hidden;
+}
+[data-theme="royal-purple"] .content-card::after,
+[data-theme="royal-purple"] .stat-card::after,
+[data-theme="royal-purple"] .cmh-panel::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(220px circle at var(--mx,50%) var(--my,20%), rgba(var(--accent-rgb),.22), transparent 55%);
+  opacity: 0; transition: opacity .25s; pointer-events: none;
+}
+[data-theme="royal-purple"] .content-card:hover::after,
+[data-theme="royal-purple"] .stat-card:hover::after,
+[data-theme="royal-purple"] .cmh-panel:hover::after { opacity: 1; }
+
+/* 3. Midnight Blue: Frosted Noise + Smooth Slide-In Fade */
+[data-theme="midnight-blue"] .content-card,
+[data-theme="midnight-blue"] .stat-card,
+[data-theme="midnight-blue"] .cmh-panel,
+[data-theme="midnight-blue"] .welcome-panel {
+  position: relative;
+  overflow: hidden;
+  animation: cmh-slide .45s ease both;
+}
+[data-theme="midnight-blue"] .content-card::before,
+[data-theme="midnight-blue"] .stat-card::before,
+[data-theme="midnight-blue"] .cmh-panel::before,
+[data-theme="midnight-blue"] .welcome-panel::before {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  opacity: .08; mix-blend-mode: soft-light;
+  background-image: radial-gradient(rgba(255,255,255,.9) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+}
+
+/* 4. Emerald Forest: Claymorphism + Tactile Button Press */
+[data-theme="emerald-forest"] .content-card,
+[data-theme="emerald-forest"] .stat-card,
+[data-theme="emerald-forest"] .cmh-panel,
+[data-theme="emerald-forest"] .welcome-panel {
+  border-radius: 24px !important;
+  border-color: rgba(255,255,255,.06) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 18px 30px rgba(0,0,0,.18), 0 6px 0 rgba(0,0,0,.08) !important;
+}
+[data-theme="emerald-forest"] .gold-button,
+[data-theme="emerald-forest"] .cmh-button,
+[data-theme="emerald-forest"] .side-link,
+[data-theme="emerald-forest"] .outline-button {
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--accent) 45%, #000), 0 10px 20px rgba(0,0,0,.15) !important;
+}
+[data-theme="emerald-forest"] .gold-button:active,
+[data-theme="emerald-forest"] .cmh-button:active,
+[data-theme="emerald-forest"] .side-link:active,
+[data-theme="emerald-forest"] .outline-button:active {
+  transform: translateY(3px) !important;
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--accent) 45%, #000) !important;
+}
+
+/* 5. Crimson Obsidian: Neon Glow + Pulse Aura */
+[data-theme="crimson-obsidian"] .gold-button,
+[data-theme="crimson-obsidian"] .cmh-button,
+[data-theme="crimson-obsidian"] .side-link.active {
+  animation: cmh-pulse 2.8s ease-in-out infinite;
+}
+[data-theme="crimson-obsidian"] .content-card,
+[data-theme="crimson-obsidian"] .stat-card,
+[data-theme="crimson-obsidian"] .cmh-panel {
+  box-shadow: 0 0 0 1px rgba(var(--accent-rgb),.18), 0 18px 40px rgba(0,0,0,.28), 0 0 28px rgba(var(--accent-rgb),.08) !important;
+}
+[data-theme="crimson-obsidian"] .stat-card h3,
+[data-theme="crimson-obsidian"] .topbar h1 {
+  text-shadow: 0 0 18px rgba(var(--accent-rgb), .35);
+}
+
+/* 6. Cyber Neon: Aurora Mesh Background + Gradient Borders */
+[data-theme="cyber-neon"] body.app-body,
+[data-theme="cyber-neon"] body.login-body,
+[data-theme="cyber-neon"] .sales-lock {
+  background: linear-gradient(120deg, #070812, #141338, #081d22, #1a0f2a) !important;
+  background-size: 300% 300% !important;
+  animation: cmh-aurora 14s ease infinite;
+}
+[data-theme="cyber-neon"] .content-card,
+[data-theme="cyber-neon"] .stat-card,
+[data-theme="cyber-neon"] .cmh-panel,
+[data-theme="cyber-neon"] .welcome-panel {
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, rgba(var(--accent-rgb),.9), rgba(217,70,239,.8), rgba(var(--accent-rgb),.4)) border-box !important;
+}
+
+/* 7. Sunset Copper: Floating Elevation + Smooth Slide-In Fade */
+[data-theme="sunset-copper"] .stat-card,
+[data-theme="sunset-copper"] .content-card,
+[data-theme="sunset-copper"] .cmh-panel {
+  animation: cmh-float 6s ease-in-out infinite, cmh-slide .5s ease both;
+  box-shadow: 0 20px 45px rgba(0,0,0,.16), 0 2px 0 rgba(255,255,255,.04) inset !important;
+}
+[data-theme="sunset-copper"] .stat-card:nth-child(2n),
+[data-theme="sunset-copper"] .content-card:nth-child(2n) { animation-delay: .3s, 0s; }
+
+/* 8. Slate Graphite: Brutalist / Sharp Crisp */
+[data-theme="slate-graphite"] .stat-card,
+[data-theme="slate-graphite"] .content-card,
+[data-theme="slate-graphite"] .cmh-panel,
+[data-theme="slate-graphite"] .welcome-panel,
+[data-theme="slate-graphite"] .sidebar,
+[data-theme="slate-graphite"] .topbar,
+[data-theme="slate-graphite"] .gold-button,
+[data-theme="slate-graphite"] .cmh-button,
+[data-theme="slate-graphite"] input,
+[data-theme="slate-graphite"] select,
+[data-theme="slate-graphite"] textarea,
+[data-theme="slate-graphite"] .side-link {
+  border-radius: 2px !important;
+}
+[data-theme="slate-graphite"] .stat-card,
+[data-theme="slate-graphite"] .content-card,
+[data-theme="slate-graphite"] .cmh-panel {
+  box-shadow: 6px 6px 0 rgba(var(--accent-rgb), .18), 0 0 0 1px var(--border) !important;
+}
+
+/* 9. Arctic Light: Glassmorphism + Gradient Borders */
+[data-theme="arctic-light"] .content-card,
+[data-theme="arctic-light"] .stat-card,
+[data-theme="arctic-light"] .cmh-panel,
+[data-theme="arctic-light"] .sidebar,
+[data-theme="arctic-light"] .login-card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,.72) !important;
+  border: 1px solid transparent !important;
+  background-image: linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.72)), linear-gradient(135deg, rgba(var(--accent-rgb),.45), rgba(14,165,233,.25)) !important;
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+}
+
+/* 10. Ivory Gold Light: Metallic Sheen + Frosted Noise */
+[data-theme="ivory-gold-light"] .gold-button,
+[data-theme="ivory-gold-light"] .cmh-button,
+[data-theme="ivory-gold-light"] .small-brand-icon,
+[data-theme="ivory-gold-light"] .profile-avatar {
+  background: linear-gradient(110deg, #f3ddab, var(--accent), #f6e3b8, var(--accent)) !important;
+  background-size: 220% 100% !important;
+  animation: cmh-sheen 6s linear infinite;
+}
+[data-theme="ivory-gold-light"] .content-card,
+[data-theme="ivory-gold-light"] .stat-card,
+[data-theme="ivory-gold-light"] .cmh-panel {
+  position: relative; overflow: hidden;
+}
+[data-theme="ivory-gold-light"] .content-card::before,
+[data-theme="ivory-gold-light"] .stat-card::before,
+[data-theme="ivory-gold-light"] .cmh-panel::before {
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.04;
+  background-image: radial-gradient(rgba(60,40,10,.8) .4px, transparent .4px);
+  background-size: 4px 4px;
+}
+
+/* 11. Rose Quartz: Claymorphism + Spotlight Hover */
+[data-theme="rose-quartz"] .content-card,
+[data-theme="rose-quartz"] .stat-card,
+[data-theme="rose-quartz"] .cmh-panel,
+[data-theme="rose-quartz"] .welcome-panel {
+  border-radius: 26px !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 14px 28px rgba(244,114,182,.12), 0 4px 0 rgba(244,114,182,.08) !important;
+  position: relative; overflow: hidden;
+}
+[data-theme="rose-quartz"] .content-card::after,
+[data-theme="rose-quartz"] .stat-card::after,
+[data-theme="rose-quartz"] .cmh-panel::after {
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .25s;
+  background: radial-gradient(200px circle at var(--mx,50%) var(--my,30%), rgba(244,114,182,.18), transparent 55%);
+}
+[data-theme="rose-quartz"] .content-card:hover::after,
+[data-theme="rose-quartz"] .stat-card:hover::after,
+[data-theme="rose-quartz"] .cmh-panel:hover::after { opacity:1; }
+
+/* 12. Lavender Mist: Glassmorphism + Pulse Aura */
+[data-theme="lavender-mist"] .content-card,
+[data-theme="lavender-mist"] .stat-card,
+[data-theme="lavender-mist"] .cmh-panel,
+[data-theme="lavender-mist"] .login-card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(252,251,255,.74) !important;
+}
+[data-theme="lavender-mist"] .gold-button,
+[data-theme="lavender-mist"] .cmh-button { animation: cmh-pulse 3.2s ease-in-out infinite; }
+
+/* 13. Mint Cream: Floating Elevation + Gradient Accent Text */
+[data-theme="mint-cream"] .stat-card,
+[data-theme="mint-cream"] .content-card,
+[data-theme="mint-cream"] .cmh-panel {
+  animation: cmh-float 7s ease-in-out infinite;
+  box-shadow: 0 16px 36px rgba(45,212,191,.1), 0 2px 0 rgba(255,255,255,.8) inset !important;
+}
+[data-theme="mint-cream"] .topbar h1,
+[data-theme="mint-cream"] .welcome-panel h2,
+[data-theme="mint-cream"] .stat-card h3 {
+  background: linear-gradient(120deg, var(--text), var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent !important;
+}
+
+/* 14. Peach Sorbet: Aurora Mesh Background + Tactile Button Press */
+[data-theme="peach-sorbet"] body.app-body,
+[data-theme="peach-sorbet"] body.login-body {
+  background: linear-gradient(120deg, #fff1ec, #ffe7df, #fff5e8, #ffeef4) !important;
+  background-size: 250% 250% !important;
+  animation: cmh-aurora 16s ease infinite;
+}
+[data-theme="peach-sorbet"] .gold-button,
+[data-theme="peach-sorbet"] .cmh-button,
+[data-theme="peach-sorbet"] .outline-button {
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--accent) 35%, #fff), 0 12px 24px rgba(var(--accent-rgb),.2) !important;
+}
+[data-theme="peach-sorbet"] .gold-button:active,
+[data-theme="peach-sorbet"] .cmh-button:active,
+[data-theme="peach-sorbet"] .outline-button:active {
+  transform: translateY(3px) !important;
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--accent) 35%, #fff) !important;
+}
+
+/* 15. Cotton Candy: Gradient Borders + Spotlight Hover */
+[data-theme="cotton-candy"] .content-card,
+[data-theme="cotton-candy"] .stat-card,
+[data-theme="cotton-candy"] .cmh-panel,
+[data-theme="cotton-candy"] .welcome-panel {
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, rgba(244,114,182,.55), rgba(139,92,246,.55), rgba(96,165,250,.45)) border-box !important;
+  position: relative; overflow: hidden;
+}
+[data-theme="cotton-candy"] .content-card::after,
+[data-theme="cotton-candy"] .stat-card::after,
+[data-theme="cotton-candy"] .cmh-panel::after {
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .25s;
+  background: radial-gradient(220px circle at var(--mx,50%) var(--my,30%), rgba(139,92,246,.14), transparent 55%);
+}
+[data-theme="cotton-candy"] .content-card:hover::after,
+[data-theme="cotton-candy"] .stat-card:hover::after,
+[data-theme="cotton-candy"] .cmh-panel:hover::after { opacity:1; }
+
+/* 16. Aurora Dream: Aurora Mesh + Neon Glow + Glassmorphism */
+[data-theme="aurora-dream"] body.app-body,
+[data-theme="aurora-dream"] body.login-body,
+[data-theme="aurora-dream"] .sales-lock {
+  background: linear-gradient(125deg, #100d21, #1a1140, #10243b, #24103a) !important;
+  background-size: 320% 320% !important;
+  animation: cmh-aurora 18s ease infinite;
+}
+[data-theme="aurora-dream"] .content-card,
+[data-theme="aurora-dream"] .stat-card,
+[data-theme="aurora-dream"] .cmh-panel,
+[data-theme="aurora-dream"] .sidebar,
+[data-theme="aurora-dream"] .topbar {
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  background: rgba(27,23,51,.62) !important;
+  box-shadow: 0 0 0 1px rgba(var(--accent-rgb),.18), 0 18px 40px rgba(0,0,0,.28), 0 0 30px rgba(34,211,238,.06) !important;
+}
+body.app-body,
+body.login-body,
+body,
+.cmh-page {
+  background: var(--page) !important;
+  color: var(--text) !important;
+}
+
+body.app-body,
+body.login-body,
+.sales-lock {
+  background-image:
+    radial-gradient(ellipse at 85% -10%, var(--gradient-a, rgba(var(--accent-rgb), .12)), transparent 42%),
+    radial-gradient(ellipse at 10% 110%, var(--gradient-b, rgba(var(--accent-rgb), .06)), transparent 38%) !important;
+}
+
+.sidebar,
+.sales-header,
+.sales-lock-card,
+.login-card {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sidebar) 94%, white 6%), var(--sidebar)) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.main-content,
+.topbar,
+.content-card,
+.stat-card,
+.welcome-panel,
+.cmh-panel,
+.cmh-stat,
+.compact-welcome {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 96%, white 4%), var(--card)) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card,
+.content-card,
+.cmh-panel,
+.cmh-stat,
+.welcome-panel,
+.login-card,
+.sales-lock-card {
+  border-radius: 18px !important;
+}
+
+.stat-card:hover,
+.content-card:hover,
+.cmh-panel:hover,
+.cmh-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px var(--glow, rgba(var(--accent-rgb), 0.12));
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.stat-card,
+.content-card,
+.cmh-panel,
+.cmh-stat {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.topbar h1,
+.content-card h3,
+.welcome-panel h2,
+.stat-card h3,
+.admin-profile strong,
+.sidebar-brand strong,
+.cmh-header h1,
+.cmh-panel-heading h2,
+.cmh-stat strong,
+.cmh-total strong,
+.sales-header h1,
+.sales-lock-card h2,
+label {
+  color: var(--text) !important;
+}
+
+.eyebrow,
+.sidebar-label,
+.admin-profile span,
+.stat-card p,
+.welcome-panel p,
+.sidebar-brand span,
+.cmh-header p,
+.cmh-panel-heading p,
+.cmh-brand,
+.cmh-stat span,
+.cmh-total span,
+.sales-header p,
+.sales-lock-card p,
+.app-footer {
+  color: var(--muted) !important;
+}
+
+.gold-button,
+.small-brand-icon,
+.profile-avatar,
+.cmh-button,
+.sales-lock-card button,
+.side-link.active,
+.side-link:hover {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 88%, white 12%), var(--accent)) !important;
+  color: var(--accent-text) !important;
+  border-color: transparent !important;
+  box-shadow: 0 10px 24px rgba(var(--accent-rgb), 0.25);
+}
+
+.gold-button:hover,
+.cmh-button:hover,
+.sales-lock-card button:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+.side-link,
+.menu-toggle,
+.sales-exit,
+.cmh-back,
+.logout-button,
+.outline-button {
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  background: color-mix(in srgb, var(--card) 72%, transparent);
+  border-radius: 12px !important;
+}
+
+.side-link:hover,
+.side-link.active {
+  background: rgba(var(--accent-rgb), 0.14) !important;
+  color: var(--accent) !important;
+}
+
+.side-link.active {
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.18);
+}
+
+input,
+select,
+textarea,
+.cmh-search {
+  background: var(--input-bg) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.cmh-search:focus {
+  outline: none !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.14) !important;
+}
+
+.cmh-table th {
+  background: color-mix(in srgb, var(--card) 88%, var(--text)) !important;
+  color: var(--text) !important;
+}
+
+.cmh-table td,
+.cmh-table tr {
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+.cmh-message.error,
+#pinError,
+.login-message.error {
+  color: #ed7777 !important;
+}
+
+.cmh-message.success,
+.login-message.success {
+  color: #80d99b !important;
+}

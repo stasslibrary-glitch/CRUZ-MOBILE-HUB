@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <title>Notifications | Cruz Mobile Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="app-body">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><img src="images/cruz1.png" alt="Cruz Mobile Hub" class="small-brand-icon"><div><strong>CRUZ MOBILE</strong><span>HUB MANAGEMENT</span></div></div>
+    <div class="sidebar-label">MAIN MENU</div>
+    <nav class="side-nav">
+      <a class="side-link" href="admin-dashboard.html">Dashboard</a>
+      <a class="side-link" href="products.html">Products</a>
+      <a class="side-link" href="sales.html">Sales & POS</a>
+      <a class="side-link" href="purchases.html">Purchases</a>
+      <a class="side-link" href="staff.html">Salespeople</a>
+      <div class="sidebar-label">BUSINESS MANAGEMENT</div>
+      <a class="side-link" href="sales-history.html">Sales History</a>
+      <a class="side-link" href="suppliers.html">Suppliers</a>
+      <a class="side-link" href="expenses.html">Expenses</a>
+      <a class="side-link" href="reports.html">Reports & Analysis</a>
+      <a class="side-link active" href="notifications.html">Notifications</a>
+      <a class="side-link" href="settings.html">Settings</a>
+    </nav>
+    <button class="logout-button" id="logoutBtn">Sign out</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+      <div><p class="eyebrow">BUSINESS ALERTS</p><h1>Notifications</h1></div>
+      <div class="admin-profile"><div class="profile-avatar">A</div><div><strong id="adminName">Administrator</strong><span>Admin account</span></div></div>
+    </header>
+
+    <section class="welcome-panel compact-welcome">
+      <div><p class="eyebrow">STAY UPDATED</p><h2>Stock and system alerts.</h2><p>Review low-stock, out-of-stock, and other business notifications.</p></div>
+      <div class="form-actions" style="margin-top:0">
+        <button type="button" class="outline-button" id="markAllReadBtn">Mark all as read</button>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><p>Total notifications</p><h3 id="totalNotifications">0</h3></article>
+      <article class="stat-card"><p>Unread</p><h3 id="unreadNotifications">0</h3></article>
+      <article class="stat-card"><p>Low / out of stock</p><h3 id="stockNotifications">0</h3></article>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading">
+        <div><p class="eyebrow">FILTERS</p><h3>Notification list</h3></div>
+        <div class="form-actions" style="margin-top:0">
+          <select id="notificationFilter" class="search-input" style="max-width:220px">
+            <option value="all">All notifications</option>
+            <option value="unread">Unread only</option>
+            <option value="read">Read only</option>
+            <option value="stock">Stock alerts</option>
+          </select>
+        </div>
+      </div>
+      <p id="notificationMessage" class="form-message" aria-live="polite"></p>
+      <div id="notificationsList" class="notifications-list">
+        <div class="empty-state">Loading notifications...</div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/notifications.js"></script>
+</body>
+</html>

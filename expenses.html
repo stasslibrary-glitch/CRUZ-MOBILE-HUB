@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <title>Expenses | Cruz Mobile Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="app-body">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><img src="images/cruz1.png" alt="Cruz Mobile Hub" class="small-brand-icon"><div><strong>CRUZ MOBILE</strong><span>HUB MANAGEMENT</span></div></div>
+    <div class="sidebar-label">MAIN MENU</div>
+    <nav class="side-nav">
+      <a class="side-link" href="admin-dashboard.html">Dashboard</a>
+      <a class="side-link" href="products.html">Products</a>
+      <a class="side-link" href="sales.html">Sales & POS</a>
+      <a class="side-link" href="purchases.html">Purchases</a>
+      <a class="side-link" href="staff.html">Salespeople</a>
+      <div class="sidebar-label">BUSINESS MANAGEMENT</div>
+      <a class="side-link" href="sales-history.html">Sales History</a>
+      <a class="side-link" href="suppliers.html">Suppliers</a>
+      <a class="side-link active" href="expenses.html">Expenses</a>
+      <a class="side-link" href="reports.html">Reports & Analysis</a>
+      <a class="side-link" href="notifications.html">Notifications</a>
+      <a class="side-link" href="settings.html">Settings</a>
+    </nav>
+    <button class="logout-button" id="logoutBtn">Sign out</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+      <div><p class="eyebrow">BUSINESS MANAGEMENT</p><h1>Expenses</h1></div>
+      <div class="admin-profile"><div class="profile-avatar">A</div><div><strong id="adminName">Administrator</strong><span>Admin account</span></div></div>
+    </header>
+
+    <section class="welcome-panel compact-welcome">
+      <div><p class="eyebrow">TRACK YOUR SPENDING</p><h2>Record business expenses.</h2><p>Keep track of shop rent, transport, utilities and other operating costs.</p></div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><p>Expense records</p><h3 id="expenseCount">0</h3></article>
+      <article class="stat-card"><p>Today's UGX expenses</p><h3 id="todayUGX">UGX 0</h3></article>
+      <article class="stat-card"><p>Today's USD expenses</p><h3 id="todayUSD">USD 0</h3></article>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading"><div><p class="eyebrow">NEW EXPENSE</p><h3>Record an expense</h3></div><span class="admin-only-label">ADMIN ONLY</span></div>
+      <form id="expenseForm">
+        <div class="form-grid">
+          <div class="form-field"><label for="expenseTitle">Expense description *</label><input id="expenseTitle" required maxlength="120" placeholder="e.g. Shop rent"></div>
+          <div class="form-field"><label for="expenseCategory">Category *</label>
+            <select id="expenseCategory" required>
+              <option value="">Choose category</option>
+              <option>Rent</option><option>Transport</option><option>Utilities</option>
+              <option>Internet & Airtime</option><option>Salaries</option><option>Packaging</option>
+              <option>Repairs & Maintenance</option><option>Marketing</option><option>Bank Charges</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-field"><label for="expenseAmount">Amount *</label><input id="expenseAmount" type="number" min="0.01" step="any" required></div>
+          <div class="form-field"><label for="expenseCurrency">Currency *</label><select id="expenseCurrency"><option value="UGX">UGX</option><option value="USD">USD</option></select></div>
+          <div class="form-field"><label for="expenseDate">Date *</label><input id="expenseDate" type="date" required></div>
+          <div class="form-field"><label for="expensePayment">Payment method</label><select id="expensePayment"><option>Cash</option><option>Mobile Money</option><option>Bank</option><option>Other</option></select></div>
+          <div class="form-field"><label for="expenseReference">Reference</label><input id="expenseReference" maxlength="80" placeholder="Receipt / transaction reference"></div>
+          <div class="form-field"><label for="expensePaidTo">Paid to</label><input id="expensePaidTo" maxlength="100" placeholder="Recipient / business"></div>
+        </div>
+        <div class="form-field" style="margin-top:16px"><label for="expenseNotes">Notes</label><textarea id="expenseNotes" rows="3" maxlength="1000"></textarea></div>
+        <div class="form-actions">
+          <button type="reset" class="outline-button">Clear form</button>
+          <button type="submit" class="gold-button" id="saveExpenseBtn">Save expense</button>
+        </div>
+        <p id="expenseMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading"><div><p class="eyebrow">SPENDING HISTORY</p><h3>Expense records</h3></div><input id="expenseSearch" class="search-input" type="search" placeholder="Search expenses..."></div>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead><tr><th>Date</th><th>Description</th><th>Category</th><th>Paid to</th><th>Method</th><th>Amount</th><th>Currency</th></tr></thead>
+          <tbody id="expensesTable"><tr><td colspan="7" class="table-empty">Loading expenses...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/expenses.js"></script>
+</body>
+</html>
+
+

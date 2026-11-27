@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <title>Reports & Analysis | Cruz Mobile Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="app-body">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><img src="images/cruz1.png" alt="Cruz Mobile Hub" class="small-brand-icon"><div><strong>CRUZ MOBILE</strong><span>HUB MANAGEMENT</span></div></div>
+    <div class="sidebar-label">MAIN MENU</div>
+    <nav class="side-nav">
+      <a class="side-link" href="admin-dashboard.html">Dashboard</a>
+      <a class="side-link" href="products.html">Products</a>
+      <a class="side-link" href="sales.html">Sales & POS</a>
+      <a class="side-link" href="purchases.html">Purchases</a>
+      <a class="side-link" href="staff.html">Salespeople</a>
+      <div class="sidebar-label">BUSINESS MANAGEMENT</div>
+      <a class="side-link" href="sales-history.html">Sales History</a>
+      <a class="side-link" href="suppliers.html">Suppliers</a>
+      <a class="side-link" href="expenses.html">Expenses</a>
+      <a class="side-link active" href="reports.html">Reports & Analysis</a>
+      <a class="side-link" href="notifications.html">Notifications</a>
+      <a class="side-link" href="settings.html">Settings</a>
+    </nav>
+    <button class="logout-button" id="logoutBtn">Sign out</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+      <div><p class="eyebrow">BUSINESS PERFORMANCE</p><h1>Reports & Analysis</h1></div>
+      <div class="admin-profile"><div class="profile-avatar">A</div><div><strong id="adminName">Administrator</strong><span>Admin account</span></div></div>
+    </header>
+
+    <section class="welcome-panel compact-welcome">
+      <div><p class="eyebrow">KNOW YOUR BUSINESS</p><h2>Track your performance.</h2><p>Review sales, expenses, purchases and estimated profit for your chosen period.</p></div>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading"><div><p class="eyebrow">REPORT PERIOD</p><h3>Choose dates</h3></div></div>
+      <div class="form-grid">
+        <div class="form-field"><label for="reportPeriod">Period</label>
+          <select id="reportPeriod">
+            <option value="today">Today</option>
+            <option value="week">This week</option>
+            <option value="month" selected>This month</option>
+            <option value="year">This year</option>
+            <option value="all">All time</option>
+            <option value="custom">Custom dates</option>
+          </select>
+        </div>
+        <div class="form-field"><label for="reportStart">Start date</label><input id="reportStart" type="date" disabled></div>
+        <div class="form-field"><label for="reportEnd">End date</label><input id="reportEnd" type="date" disabled></div>
+      </div>
+      <p id="reportMessage" class="form-message" aria-live="polite"></p>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading"><div><p class="eyebrow">PERFORMANCE (UGX BASE)</p><h3>Ugandan shillings</h3></div></div>
+      <p class="form-message">USD values are converted at 1 USD = 4,250 UGX.</p>
+      <div class="stats-grid">
+        <article class="stat-card"><p>Sales revenue</p><h3 id="ugxRevenue">UGX 0</h3></article>
+        <article class="stat-card"><p>Estimated cost of goods</p><h3 id="ugxCost">UGX 0</h3></article>
+        <article class="stat-card"><p>Gross profit estimate</p><h3 id="ugxGross">UGX 0</h3></article>
+        <article class="stat-card"><p>Expenses</p><h3 id="ugxExpenses">UGX 0</h3></article>
+        <article class="stat-card"><p>Estimated net profit</p><h3 id="ugxNet">UGX 0</h3></article>
+        <article class="stat-card"><p>Purchases recorded</p><h3 id="ugxPurchases">UGX 0</h3></article>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading"><div><p class="eyebrow">USD EQUIVALENT</p><h3>Converted at 4,250 UGX/USD</h3></div></div>
+      <div class="stats-grid">
+        <article class="stat-card"><p>Sales revenue</p><h3 id="usdRevenue">USD 0</h3></article>
+        <article class="stat-card"><p>Estimated cost of goods</p><h3 id="usdCost">USD 0</h3></article>
+        <article class="stat-card"><p>Gross profit estimate</p><h3 id="usdGross">USD 0</h3></article>
+        <article class="stat-card"><p>Expenses</p><h3 id="usdExpenses">USD 0</h3></article>
+        <article class="stat-card"><p>Estimated net profit</p><h3 id="usdNet">USD 0</h3></article>
+        <article class="stat-card"><p>Purchases recorded</p><h3 id="usdPurchases">USD 0</h3></article>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading"><div><p class="eyebrow">TRANSACTION SUMMARY</p><h3>Activity in selected period</h3></div></div>
+      <div class="stats-grid">
+        <article class="stat-card"><p>Number of sales</p><h3 id="reportSalesCount">0</h3></article>
+        <article class="stat-card"><p>Units sold</p><h3 id="reportUnitsSold">0</h3></article>
+        <article class="stat-card"><p>Purchase records</p><h3 id="reportPurchaseCount">0</h3></article>
+        <article class="stat-card"><p>Expense records</p><h3 id="reportExpenseCount">0</h3></article>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="gold-button" id="printReportBtn">Print report</button>
+      </div>
+      <p class="form-message">Profit is an estimate. It uses the current recorded product buying cost for each sale, not necessarily the exact historical cost at the time of that sale. Credit sales are included in recorded sales revenue.</p>
+    </section>
+  </main>
+  <script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/reports.js"></script>
+</body>
+</html>
+
+

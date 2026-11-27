@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <title>Sales History | Cruz Mobile Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="app-body">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><img src="images/cruz1.png" alt="Cruz Mobile Hub" class="small-brand-icon"><div><strong>CRUZ MOBILE</strong><span>HUB MANAGEMENT</span></div></div>
+    <div class="sidebar-label">MAIN MENU</div>
+    <nav class="side-nav">
+      <a class="side-link" href="admin-dashboard.html">Dashboard</a>
+      <a class="side-link" href="products.html">Products</a>
+      <a class="side-link" href="sales.html">Sales & POS</a>
+      <a class="side-link" href="purchases.html">Purchases</a>
+      <a class="side-link" href="staff.html">Salespeople</a>
+      <div class="sidebar-label">BUSINESS MANAGEMENT</div>
+      <a class="side-link active" href="sales-history.html">Sales History</a>
+      <a class="side-link" href="suppliers.html">Suppliers</a>
+      <a class="side-link" href="expenses.html">Expenses</a>
+      <a class="side-link" href="reports.html">Reports & Analysis</a>
+      <a class="side-link" href="notifications.html">Notifications</a>
+      <a class="side-link" href="settings.html">Settings</a>
+    </nav>
+    <button class="logout-button" id="logoutBtn">Sign out</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+      <div><p class="eyebrow">BUSINESS MANAGEMENT</p><h1>Sales History</h1></div>
+      <div class="admin-profile"><div class="profile-avatar">A</div><div><strong id="adminName">Administrator</strong><span>Admin account</span></div></div>
+    </header>
+
+    <section class="welcome-panel compact-welcome">
+      <div><p class="eyebrow">ALL TRANSACTIONS</p><h2>Track every sale.</h2><p>Review sales from all accounts, see who made each sale, and filter by salesperson.</p></div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><p>Filtered sales</p><h3 id="historyCount">0</h3></article>
+      <article class="stat-card"><p>Filtered total (UGX)</p><h3 id="historyTotalUGX">UGX 0</h3></article>
+      <article class="stat-card"><p>USD equivalent</p><h3 id="historyTotalUSD">USD 0</h3><span class="stat-note">1 USD = 4,250 UGX</span></article>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading">
+        <div><p class="eyebrow">FILTERS</p><h3>Find sales</h3></div>
+      </div>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="salesPeriodFilter">Period</label>
+          <select id="salesPeriodFilter">
+            <option value="daily">Today</option>
+            <option value="weekly">This week</option>
+            <option value="monthly">This month</option>
+            <option value="all">All time</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="salespersonFilter">Salesperson</label>
+          <select id="salespersonFilter">
+            <option value="all">All salespeople</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="historySearch">Search</label>
+          <input id="historySearch" type="search" placeholder="Receipt, product, customer, payment...">
+        </div>
+      </div>
+      <p id="historyMessage" class="form-message" aria-live="polite"></p>
+    </section>
+
+    <section class="content-card">
+      <div class="card-heading"><div><p class="eyebrow">TRANSACTIONS</p><h3>Sales records</h3></div></div>
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Receipt</th>
+              <th>Date</th>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Total</th>
+              <th>Payment</th>
+              <th>Customer</th>
+              <th>Sold by</th>
+            </tr>
+          </thead>
+          <tbody id="historyTable">
+            <tr><td colspan="8" class="table-empty">Loading sales...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/sales-history.js"></script>
+</body>
+</html>
+

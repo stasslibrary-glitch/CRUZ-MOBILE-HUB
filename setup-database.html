@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <title>Database Setup | Cruz Mobile Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+  <main class="cmh-page">
+    <section class="cmh-panel" style="max-width:500px;margin:70px auto">
+      <h1>CRUZ MOBILE HUB</h1>
+      <h2>Initialize Database</h2>
+      <p>Sign in with your existing administrator account to prepare your database.</p>
+
+      <form id="setupForm" class="cmh-form">
+        <label>
+          Admin email
+          <input id="adminEmail" type="email" required>
+        </label>
+
+        <label>
+          Admin password
+          <div class="password-field">
+            <input id="adminPassword" type="password" required>
+            <button type="button" class="password-toggle" id="toggleSetupPassword" aria-label="Show password" aria-pressed="false" title="Show password">
+              <svg class="eye-icon eye-show" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              <svg class="eye-icon eye-hide" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.58 10.58A3 3 0 0 0 13.42 13.42M9.88 5.09A10.94 10.94 0 0 1 12 5c7 0 11 7 11 7a17.3 17.3 0 0 1-4.13 4.82M6.61 6.61C3.62 8.63 1 12 1 12s4 7 11 7a10.94 10.94 0 0 0 5.39-1.39" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </label>
+
+        <button class="cmh-button" id="setupBtn" type="submit">
+          Create Database Structure
+        </button>
+      </form>
+
+      <p id="setupMessage" class="cmh-message"></p>
+    </section>
+  </main>
+<script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/setup-database.js"></script>
+</body>
+</html>
+

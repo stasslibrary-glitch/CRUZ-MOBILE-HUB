@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <link rel="icon" href="images/cruz1.png" type="image/png">
+  <title>Purchases | Cruz Mobile Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="app-body">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="images/cruz1.png" alt="Cruz Mobile Hub" class="small-brand-icon">
+      <div>
+        <strong>CRUZ MOBILE</strong>
+        <span>HUB MANAGEMENT</span>
+      </div>
+    </div>
+
+    <div class="sidebar-label">MAIN MENU</div>
+
+    <nav class="side-nav">
+      <a class="side-link" href="admin-dashboard.html">Dashboard</a>
+      <a class="side-link" href="products.html">Products</a>
+      <a class="side-link" href="sales.html">Sales & POS</a>
+      <a class="side-link active" href="purchases.html">Purchases</a>
+      <a class="side-link" href="staff.html">Salespeople</a>
+
+      <div class="sidebar-label">BUSINESS MANAGEMENT</div>
+
+      <a class="side-link" href="sales-history.html">Sales History</a>
+      <a class="side-link" href="suppliers.html">Suppliers</a>
+      <a class="side-link" href="expenses.html">Expenses</a>
+      <a class="side-link" href="reports.html">Reports & Analysis</a>
+      <a class="side-link" href="notifications.html">Notifications</a>
+      <a class="side-link" href="settings.html">Settings</a>
+    </nav>
+
+    <button class="logout-button" id="logoutBtn">Sign out</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+      <div>
+        <p class="eyebrow">STOCK MANAGEMENT</p>
+        <h1>Stock Purchases</h1>
+      </div>
+      <div class="admin-profile">
+        <div class="profile-avatar">A</div>
+        <div>
+          <strong id="adminName">Administrator</strong>
+          <span>Admin account</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="welcome-panel compact-welcome">
+      <div>
+        <p class="eyebrow">INVENTORY RESTOCKING</p>
+        <h2>Record purchases and update inventory.</h2>
+        <p>Enter supplier costs, update stock levels, and review purchase history.</p>
+      </div>
+    </section>
+
+    <div class="cmh-content">
+      <section class="cmh-panel">
+        <div class="cmh-panel-heading">
+          <div>
+            <h2>Record a purchase</h2>
+            <p>Enter the quantity and cost from your supplier.</p>
+          </div>
+        </div>
+
+        <form id="purchaseForm" class="cmh-form">
+          <label>
+            Product
+            <select id="purchaseProduct" required>
+              <option value="">Loading products...</option>
+            </select>
+          </label>
+
+          <div class="cmh-form-grid">
+            <label>
+              Quantity purchased
+              <input id="purchaseQuantity" type="number" min="1" step="1" required>
+            </label>
+            <label>
+              Unit buying cost
+              <input id="purchaseCost" type="number" min="0.01" step="0.01" required>
+            </label>
+          </div>
+
+          <div class="cmh-form-grid">
+            <label>
+              Supplier
+              <input id="purchaseSupplier" type="text" placeholder="Supplier name">
+            </label>
+            <label>
+              Payment method
+              <select id="purchasePayment" required>
+                <option value="Cash">Cash</option>
+                <option value="Mobile Money">Mobile Money</option>
+                <option value="Bank">Bank</option>
+                <option value="Credit">Credit</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Notes (optional)
+            <textarea id="purchaseNotes" rows="2" placeholder="Invoice number or other details"></textarea>
+          </label>
+
+          <div class="cmh-total">
+            <span>Purchase total</span>
+            <strong id="purchaseTotal">UGX 0</strong>
+          </div>
+
+          <p id="purchaseMessage" class="cmh-message"></p>
+          <button id="savePurchaseBtn" class="cmh-button" type="submit">Save Purchase & Update Stock</button>
+        </form>
+      </section>
+
+      <section class="cmh-panel">
+        <div class="cmh-panel-heading">
+          <div>
+            <h2>Purchase history</h2>
+            <p>Previously recorded stock purchases</p>
+          </div>
+          <input id="purchaseSearch" class="cmh-search" type="search" placeholder="Search purchases...">
+        </div>
+
+        <div class="cmh-table-wrap">
+          <table class="cmh-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit cost</th>
+                <th>Total</th>
+                <th>Supplier</th>
+                <th>Payment</th>
+              </tr>
+            </thead>
+            <tbody id="purchasesTable">
+              <tr><td colspan="7">Loading purchases...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <footer class="app-footer">
+      CRUZ MOBILE HUB <span></span> STOCK MANAGEMENT
+    </footer>
+  </main>
+<script type="module" src="js/theme-loader.js"></script>
+  <script type="module" src="js/purchases.js"></script>
+</body>
+</html>
+
+
